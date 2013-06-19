@@ -1,3 +1,5 @@
-A program create in part of a Second Year Games Development Degree at UCLAN, Preston.
+A program create in part of the Games Development Degree at UCLAN, Preston.
 
-A small RTS game prototype based on an engine used for learning Games Development.
+A small RTS game prototype based on an engine (TL/Irrlicht Engine) used for teaching Games Development.
+
+The program uses a game manager to encapsulate the audio, engine and camera class and these can only be accessed through the manager.
