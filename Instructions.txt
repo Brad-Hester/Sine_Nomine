@@ -1,0 +1,47 @@
+To setup the sound follow this:
+
+The OpenAL folder and the audio folder needs to go in the game directory
+
+
+These need to be added to the correct paths
+
+C/C++ -> General -> Additional Include Directories: OpenAL\include
+
+Linker -> General -> Additional Library Directories: OpenAL\libs and OpenAL\libs\Win32
+Linker -> Input -> Additional Dependancies: alut.lib and openal32.lib
+
+Build Events -> Post-Build Event -> Command Line: copy "OpenAL\libs\alut.dll"
+
+OpenAL32.DLL needs to go in windows32 folder, I've included it incase you haven't installed OpenAL
+
+
+
+////////////////
+// TO PLAY FILES
+
+You need to get the instance of the audio manager in each file your using sound in
+similar to the engine and the camera
+
+CAudioManager* mpAudio = CTLManager::GetInstance()->GetAudio();
+
+To load a file you need to create an ID for it in the enum type located in the audio includes header
+Theres a few sample ones in there, just make sure what you add comes before AUDIO_LAST
+
+Once you've done that you need to load a file like so:
+
+			   ID		File name
+if(!mpAudio.createSource(CLICK, "audio/cinBoom.wav"))
+{
+	cout << "Error: Failed to load sound CinBoom.wav\n";
+}
+
+
+This code needs to go in the "loadSounds" member function of CAudioManager
+
+To play the file:
+mpAudio->play(CLICK);
+
+
+
+
+
